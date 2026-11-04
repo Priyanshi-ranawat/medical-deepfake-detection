@@ -36,6 +36,21 @@ AUC is threshold-independent; recall / FN are at the validation-Youden threshold
 | injection | 0.859 | 0.820 | 0.089 | 0.289 |
 | removal   | 0.524 | 0.501 | 0.000 | 0.000 |
 
+## MRI — modality generalization (SD only, mean ± sd over 3 seeds)
+
+MRI in the BTD set is Stable-Diffusion only, so there is no within-MRI
+cross-generator test; this measures whether the CT-validated approach transfers
+to a second imaging modality. Split names are `val` / `test` (no `test_other`).
+
+| Task | Split | EfficientNet AUC | ResNet AUC | EfficientNet recall | ResNet recall | EfficientNet FN | ResNet FN |
+|---|---|---|---|---|---|---|---|
+| injection | test | **0.995 ± 0.007** | 0.986 ± 0.012 | 0.917 | 0.762 | 2.3 | 6.7 |
+| removal   | test | 0.964 ± 0.012 | **0.986 ± 0.020** | 0.857 | 0.869 | 4.0 | 3.7 |
+
+Both backbones detect manipulated MRI well in-distribution (test AUC 0.96–0.995),
+confirming the pipeline transfers to a second modality. EfficientNet is stronger on
+MRI injection, ResNet on MRI removal — again within overlapping seed variance.
+
 ## Findings
 
 1. **The two architectures are statistically tied.** On every CTGAN split the AUC
@@ -67,5 +82,7 @@ AUC is threshold-independent; recall / FN are at the validation-Youden threshold
 
 Fixed-protocol comparison on test populations inspected during preprocessing, not
 a fresh independent evaluation — do not tune settings from these test numbers.
-SD-trained rows are single-seed (no variance). EfficientNet results still need
-the MRI runs for the modality-generalization axis of the proposal.
+CT SD-trained rows are single-seed (no variance). Both modality
+(CT + MRI) and generator (CTGAN + SD) generalization axes of the proposal are now
+covered; MRI has only one generator, so it contributes modality coverage but no
+within-MRI cross-generator result.
