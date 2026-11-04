@@ -1,0 +1,22 @@
+run efficientnet_b0_CT_removal_SD_pre_seed0 on mps
+split sizes: {'train': 510, 'val': 108, 'test_same': 146, 'test_other': 146} | train authentic=255 fake=255
+epoch  0 [head] train_loss 0.6472 val_loss 0.6008 val_auc 0.8580 (4.7s)
+epoch  1 [head] train_loss 0.5753 val_loss 0.5335 val_auc 0.9369 (4.2s)
+epoch  2 [head] train_loss 0.5247 val_loss 0.4841 val_auc 0.9520 (4.1s)
+epoch  3 [full] train_loss 0.6279 val_loss 0.5577 val_auc 0.8971 (12.4s)
+epoch  4 [full] train_loss 0.3306 val_loss 0.3509 val_auc 0.9897 (12.1s)
+epoch  5 [full] train_loss 0.1871 val_loss 0.2451 val_auc 0.9949 (12.3s)
+epoch  6 [full] train_loss 0.1071 val_loss 0.1168 val_auc 0.9997 (12.6s)
+epoch  7 [full] train_loss 0.0680 val_loss 0.0530 val_auc 1.0000 (12.4s)
+epoch  8 [full] train_loss 0.0798 val_loss 0.0289 val_auc 1.0000 (13.1s)
+epoch  9 [full] train_loss 0.0416 val_loss 0.0281 val_auc 1.0000 (12.4s)
+epoch 10 [full] train_loss 0.0392 val_loss 0.0221 val_auc 1.0000 (12.3s)
+epoch 11 [full] train_loss 0.0297 val_loss 0.0166 val_auc 1.0000 (13.3s)
+epoch 12 [full] train_loss 0.0172 val_loss 0.0140 val_auc 1.0000 (12.4s)
+epoch 13 [full] train_loss 0.0224 val_loss 0.0125 val_auc 1.0000 (12.3s)
+epoch 14 [full] train_loss 0.0340 val_loss 0.0162 val_auc 1.0000 (12.2s)
+early stop: no val AUC gain for 7 epochs
+val        n= 108 AUC 1.000 | @youden: bal_acc 1.000 recall 1.000 spec 1.000 F1 1.000 FN 0
+test_same  n= 146 AUC 1.000 | @youden: bal_acc 0.986 recall 0.986 spec 0.986 F1 0.986 FN 1
+test_other n= 146 AUC 0.524 | @youden: bal_acc 0.493 recall 0.000 spec 0.986 F1 0.000 FN 73
+saved to runs/efficientnet_b0_CT_removal_SD_pre_seed0

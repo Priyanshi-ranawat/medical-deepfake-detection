@@ -1,0 +1,33 @@
+run resnet18_CT_injection_CTGAN_pre_seed2 on mps
+split sizes: {'train': 1731, 'val': 384, 'test_same': 456, 'test_other': 456} | train authentic=903 fake=828
+epoch  0 [head] train_loss 0.6885 val_loss 0.6207 val_auc 0.7948 (9.5s)
+epoch  1 [head] train_loss 0.6208 val_loss 0.5798 val_auc 0.8530 (9.5s)
+epoch  2 [head] train_loss 0.5779 val_loss 0.5440 val_auc 0.8716 (9.5s)
+epoch  3 [full] train_loss 0.2286 val_loss 0.1553 val_auc 0.9887 (23.9s)
+epoch  4 [full] train_loss 0.0871 val_loss 0.1731 val_auc 0.9908 (23.7s)
+epoch  5 [full] train_loss 0.0710 val_loss 0.1534 val_auc 0.9880 (23.7s)
+epoch  6 [full] train_loss 0.0686 val_loss 0.1301 val_auc 0.9935 (23.9s)
+epoch  7 [full] train_loss 0.0490 val_loss 0.1825 val_auc 0.9890 (23.6s)
+epoch  8 [full] train_loss 0.0738 val_loss 0.1306 val_auc 0.9922 (23.7s)
+epoch  9 [full] train_loss 0.0447 val_loss 0.1358 val_auc 0.9934 (23.7s)
+epoch 10 [full] train_loss 0.0215 val_loss 0.1382 val_auc 0.9927 (23.7s)
+epoch 11 [full] train_loss 0.0225 val_loss 0.1364 val_auc 0.9948 (23.7s)
+epoch 12 [full] train_loss 0.0200 val_loss 0.1078 val_auc 0.9948 (24.0s)
+epoch 13 [full] train_loss 0.0100 val_loss 0.1289 val_auc 0.9939 (23.6s)
+epoch 14 [full] train_loss 0.0117 val_loss 0.1372 val_auc 0.9925 (23.5s)
+epoch 15 [full] train_loss 0.0174 val_loss 0.1038 val_auc 0.9954 (24.0s)
+epoch 16 [full] train_loss 0.0434 val_loss 0.1106 val_auc 0.9944 (23.9s)
+epoch 17 [full] train_loss 0.0303 val_loss 0.0914 val_auc 0.9961 (23.6s)
+epoch 18 [full] train_loss 0.0134 val_loss 0.0798 val_auc 0.9971 (23.7s)
+epoch 19 [full] train_loss 0.0147 val_loss 0.0896 val_auc 0.9963 (23.5s)
+epoch 20 [full] train_loss 0.0194 val_loss 0.1463 val_auc 0.9917 (23.7s)
+epoch 21 [full] train_loss 0.0097 val_loss 0.1227 val_auc 0.9943 (23.9s)
+epoch 22 [full] train_loss 0.0071 val_loss 0.1352 val_auc 0.9955 (23.6s)
+epoch 23 [full] train_loss 0.0056 val_loss 0.1175 val_auc 0.9951 (23.6s)
+epoch 24 [full] train_loss 0.0044 val_loss 0.1070 val_auc 0.9956 (23.7s)
+epoch 25 [full] train_loss 0.0061 val_loss 0.1034 val_auc 0.9956 (24.0s)
+early stop: no val AUC gain for 7 epochs
+val        n= 384 AUC 0.997 | @youden: bal_acc 0.973 recall 0.991 spec 0.954 F1 0.981 FN 2
+test_same  n= 456 AUC 0.942 | @youden: bal_acc 0.935 recall 0.870 spec 1.000 F1 0.930 FN 41
+test_other n= 456 AUC 0.869 | @youden: bal_acc 0.662 recall 0.324 spec 1.000 F1 0.489 FN 213
+saved to runs/resnet18_CT_injection_CTGAN_pre_seed2

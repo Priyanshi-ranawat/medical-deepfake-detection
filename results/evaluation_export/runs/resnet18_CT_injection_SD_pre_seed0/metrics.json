@@ -1,0 +1,162 @@
+{
+  "run": "resnet18_CT_injection_SD_pre_seed0",
+  "args": {
+    "modality": "CT",
+    "task": "injection",
+    "train_method": "SD",
+    "arch": "resnet18",
+    "pretrained": true,
+    "epochs": 30,
+    "freeze_epochs": 3,
+    "head_lr": 0.001,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "dropout": 0.3,
+    "batch_size": 32,
+    "patience": 7,
+    "recall_target": 0.95,
+    "seed": 0,
+    "num_workers": 0,
+    "root": null,
+    "out": "runs",
+    "device": null,
+    "limit_batches": 0
+  },
+  "best_epoch": 11,
+  "thresholds": {
+    "default_0.5": 0.5,
+    "youden_val": 0.18063682317733765,
+    "recall0.95_val": 0.9670314192771912
+  },
+  "splits": {
+    "val": {
+      "n": 384,
+      "auc": 1.0,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.9947916666666666,
+        "balanced_accuracy": 0.9956709956709957,
+        "precision": 1.0,
+        "recall": 0.9913419913419913,
+        "specificity": 1.0,
+        "f1": 0.9956521739130434,
+        "tp": 229,
+        "tn": 153,
+        "fp": 0,
+        "fn": 2
+      },
+      "youden_val": {
+        "threshold": 0.18063682317733765,
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "tp": 231,
+        "tn": 153,
+        "fp": 0,
+        "fn": 0
+      },
+      "recall0.95_val": {
+        "threshold": 0.9670314192771912,
+        "accuracy": 0.9739583333333334,
+        "balanced_accuracy": 0.9783549783549783,
+        "precision": 1.0,
+        "recall": 0.9567099567099567,
+        "specificity": 1.0,
+        "f1": 0.9778761061946903,
+        "tp": 221,
+        "tn": 153,
+        "fp": 0,
+        "fn": 10
+      }
+    },
+    "test_same": {
+      "n": 456,
+      "auc": 0.9999099403354722,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.993421052631579,
+        "balanced_accuracy": 0.9952380952380953,
+        "precision": 1.0,
+        "recall": 0.9904761904761905,
+        "specificity": 1.0,
+        "f1": 0.9952153110047847,
+        "tp": 312,
+        "tn": 141,
+        "fp": 0,
+        "fn": 3
+      },
+      "youden_val": {
+        "threshold": 0.18063682317733765,
+        "accuracy": 0.9956140350877193,
+        "balanced_accuracy": 0.9968253968253968,
+        "precision": 1.0,
+        "recall": 0.9936507936507937,
+        "specificity": 1.0,
+        "f1": 0.9968152866242038,
+        "tp": 313,
+        "tn": 141,
+        "fp": 0,
+        "fn": 2
+      },
+      "recall0.95_val": {
+        "threshold": 0.9670314192771912,
+        "accuracy": 0.9605263157894737,
+        "balanced_accuracy": 0.9714285714285714,
+        "precision": 1.0,
+        "recall": 0.9428571428571428,
+        "specificity": 1.0,
+        "f1": 0.9705882352941176,
+        "tp": 297,
+        "tn": 141,
+        "fp": 0,
+        "fn": 18
+      }
+    },
+    "test_other": {
+      "n": 456,
+      "auc": 0.8198356411122368,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.4232456140350877,
+        "balanced_accuracy": 0.5825396825396826,
+        "precision": 1.0,
+        "recall": 0.16507936507936508,
+        "specificity": 1.0,
+        "f1": 0.2833787465940054,
+        "tp": 52,
+        "tn": 141,
+        "fp": 0,
+        "fn": 263
+      },
+      "youden_val": {
+        "threshold": 0.18063682317733765,
+        "accuracy": 0.5087719298245614,
+        "balanced_accuracy": 0.6444444444444444,
+        "precision": 1.0,
+        "recall": 0.28888888888888886,
+        "specificity": 1.0,
+        "f1": 0.4482758620689655,
+        "tp": 91,
+        "tn": 141,
+        "fp": 0,
+        "fn": 224
+      },
+      "recall0.95_val": {
+        "threshold": 0.9670314192771912,
+        "accuracy": 0.3267543859649123,
+        "balanced_accuracy": 0.5126984126984127,
+        "precision": 1.0,
+        "recall": 0.025396825396825397,
+        "specificity": 1.0,
+        "f1": 0.04953560371517028,
+        "tp": 8,
+        "tn": 141,
+        "fp": 0,
+        "fn": 307
+      }
+    }
+  }
+}

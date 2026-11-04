@@ -1,0 +1,96 @@
+{
+  "shared_commit": "fc202cd779f74dfea365e3ad685957ed40d7f704",
+  "source_sha256": {
+    "src/train.py": "393d9641f9a77492d10803631f12038f7adbf2be74a9fe29b39c46e38550d68f",
+    "src/models.py": "cf43e466b1cbede87c7198e06c4a8cf6d4d7b62be0e14bb76804fd2ffa6c8f3d",
+    "src/config.py": "b0601212e4c9a2166505382682ed4a34e1ca2b1823e46b2e76df75ca9d8d29ea",
+    "src/data_loader.py": "7e4ef5188142e50b6d861045ff36e58cd12460369414005a118a07c25f278084",
+    "src/mri_data_loader.py": "057bbb75d2987a45985bd64422ef134059a6c360807a78d15c3a8d4e80f51890",
+    "src/splits.py": "b31d3fb36b2ecc90edd8fa4a3e56b2fb653450a70a4848768dac6bf3a02a1059"
+  },
+  "split_seed": 42,
+  "modality": "MRI",
+  "train_method": "SD",
+  "architectures": [
+    "efficientnet_b0",
+    "resnet18"
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "auto_selected_device": "mps",
+  "python": "3.12.13",
+  "packages": {
+    "torch": "2.14.0",
+    "torchvision": "0.29.0",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0"
+  },
+  "jobs": [
+    {
+      "arch": "efficientnet_b0",
+      "task": "injection",
+      "seed": 0
+    },
+    {
+      "arch": "efficientnet_b0",
+      "task": "injection",
+      "seed": 1
+    },
+    {
+      "arch": "efficientnet_b0",
+      "task": "injection",
+      "seed": 2
+    },
+    {
+      "arch": "efficientnet_b0",
+      "task": "removal",
+      "seed": 0
+    },
+    {
+      "arch": "efficientnet_b0",
+      "task": "removal",
+      "seed": 1
+    },
+    {
+      "arch": "efficientnet_b0",
+      "task": "removal",
+      "seed": 2
+    },
+    {
+      "arch": "resnet18",
+      "task": "injection",
+      "seed": 0
+    },
+    {
+      "arch": "resnet18",
+      "task": "injection",
+      "seed": 1
+    },
+    {
+      "arch": "resnet18",
+      "task": "injection",
+      "seed": 2
+    },
+    {
+      "arch": "resnet18",
+      "task": "removal",
+      "seed": 0
+    },
+    {
+      "arch": "resnet18",
+      "task": "removal",
+      "seed": 1
+    },
+    {
+      "arch": "resnet18",
+      "task": "removal",
+      "seed": 2
+    }
+  ],
+  "rule": "Shared pipeline unchanged; --modality MRI. All training defaults unchanged.",
+  "qualification": "MRI is Stable-Diffusion only; no within-MRI cross-generator test. Fixed protocol on inspected BTD populations; do not tune settings from these test results."
+}

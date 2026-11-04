@@ -1,0 +1,30 @@
+run resnet18_CT_injection_CTGAN_pre_seed0 on mps
+split sizes: {'train': 1731, 'val': 384, 'test_same': 456, 'test_other': 456} | train authentic=903 fake=828
+epoch  0 [head] train_loss 0.6927 val_loss 0.6765 val_auc 0.8137 (10.6s)
+epoch  1 [head] train_loss 0.6205 val_loss 0.5769 val_auc 0.8765 (10.0s)
+epoch  2 [head] train_loss 0.5798 val_loss 0.5975 val_auc 0.9011 (10.1s)
+epoch  3 [full] train_loss 0.2436 val_loss 0.1752 val_auc 0.9874 (25.7s)
+epoch  4 [full] train_loss 0.0880 val_loss 0.1770 val_auc 0.9870 (25.2s)
+epoch  5 [full] train_loss 0.0753 val_loss 0.1334 val_auc 0.9932 (24.8s)
+epoch  6 [full] train_loss 0.0588 val_loss 0.2179 val_auc 0.9817 (25.5s)
+epoch  7 [full] train_loss 0.0365 val_loss 0.2043 val_auc 0.9803 (24.8s)
+epoch  8 [full] train_loss 0.0311 val_loss 0.2706 val_auc 0.9771 (24.4s)
+epoch  9 [full] train_loss 0.0642 val_loss 0.1373 val_auc 0.9935 (25.7s)
+epoch 10 [full] train_loss 0.0721 val_loss 0.1184 val_auc 0.9939 (24.4s)
+epoch 11 [full] train_loss 0.0172 val_loss 0.0892 val_auc 0.9944 (24.3s)
+epoch 12 [full] train_loss 0.0143 val_loss 0.1071 val_auc 0.9935 (24.0s)
+epoch 13 [full] train_loss 0.0248 val_loss 0.1354 val_auc 0.9919 (24.0s)
+epoch 14 [full] train_loss 0.0111 val_loss 0.1146 val_auc 0.9934 (24.0s)
+epoch 15 [full] train_loss 0.0239 val_loss 0.1193 val_auc 0.9951 (24.2s)
+epoch 16 [full] train_loss 0.0306 val_loss 0.1014 val_auc 0.9940 (23.8s)
+epoch 17 [full] train_loss 0.0104 val_loss 0.1221 val_auc 0.9935 (23.7s)
+epoch 18 [full] train_loss 0.0122 val_loss 0.1372 val_auc 0.9917 (23.8s)
+epoch 19 [full] train_loss 0.0157 val_loss 0.1223 val_auc 0.9928 (23.8s)
+epoch 20 [full] train_loss 0.0129 val_loss 0.1173 val_auc 0.9933 (24.0s)
+epoch 21 [full] train_loss 0.0058 val_loss 0.1120 val_auc 0.9937 (23.7s)
+epoch 22 [full] train_loss 0.0045 val_loss 0.1171 val_auc 0.9935 (23.7s)
+early stop: no val AUC gain for 7 epochs
+val        n= 384 AUC 0.995 | @youden: bal_acc 0.976 recall 0.965 spec 0.987 F1 0.978 FN 8
+test_same  n= 456 AUC 0.950 | @youden: bal_acc 0.938 recall 0.876 spec 1.000 F1 0.934 FN 39
+test_other n= 456 AUC 0.878 | @youden: bal_acc 0.624 recall 0.248 spec 1.000 F1 0.397 FN 237
+saved to runs/resnet18_CT_injection_CTGAN_pre_seed0

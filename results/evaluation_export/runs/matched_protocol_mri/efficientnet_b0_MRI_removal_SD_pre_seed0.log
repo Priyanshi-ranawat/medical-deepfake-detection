@@ -1,0 +1,20 @@
+run efficientnet_b0_MRI_removal_SD_pre_seed0 on mps
+split sizes: {'train': 238, 'val': 56, 'test': 56} | train authentic=119 fake=119
+epoch  0 [head] train_loss 0.6838 val_loss 0.6439 val_auc 0.7615 (2.4s)
+epoch  1 [head] train_loss 0.6156 val_loss 0.6168 val_auc 0.7934 (1.9s)
+epoch  2 [head] train_loss 0.5669 val_loss 0.5917 val_auc 0.7934 (1.8s)
+epoch  3 [full] train_loss 0.7153 val_loss 0.5324 val_auc 0.8737 (5.0s)
+epoch  4 [full] train_loss 0.5602 val_loss 0.4748 val_auc 0.9503 (4.7s)
+epoch  5 [full] train_loss 0.4367 val_loss 0.4268 val_auc 0.9936 (5.0s)
+epoch  6 [full] train_loss 0.3401 val_loss 0.3812 val_auc 1.0000 (4.4s)
+epoch  7 [full] train_loss 0.2639 val_loss 0.3216 val_auc 1.0000 (4.4s)
+epoch  8 [full] train_loss 0.2160 val_loss 0.2657 val_auc 1.0000 (4.4s)
+epoch  9 [full] train_loss 0.1726 val_loss 0.2241 val_auc 1.0000 (4.4s)
+epoch 10 [full] train_loss 0.1361 val_loss 0.1789 val_auc 1.0000 (4.4s)
+epoch 11 [full] train_loss 0.1134 val_loss 0.1459 val_auc 1.0000 (4.4s)
+epoch 12 [full] train_loss 0.0977 val_loss 0.1433 val_auc 1.0000 (4.5s)
+epoch 13 [full] train_loss 0.0845 val_loss 0.1583 val_auc 1.0000 (4.5s)
+early stop: no val AUC gain for 7 epochs
+val        n=  56 AUC 1.000 | @youden: bal_acc 1.000 recall 1.000 spec 1.000 F1 1.000 FN 0
+test       n=  56 AUC 0.974 | @youden: bal_acc 0.875 recall 0.750 spec 1.000 F1 0.857 FN 7
+saved to runs/efficientnet_b0_MRI_removal_SD_pre_seed0
