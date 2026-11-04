@@ -1,5 +1,19 @@
 # Medical Deepfake Detection
 
+## ResNet-18
+
+Eight CT runs completed using the unchanged EfficientNet training pipeline:
+CTGAN injection/removal with seeds 0, 1, 2; SD injection/removal with seed 0.
+The data split seed is 42. This branch builds on `feature/efficientnet`.
+
+```bash
+python scripts/run_matched_resnet.py --root /path/to/archive
+```
+
+See [training settings](docs/RESNET_MATCHED_PROTOCOL.md) and
+[results](results/resnet18_metrics.csv) (all seeds, splits, and thresholds).
+[Team C handoff](docs/RESNET_TEAM_C_HANDOFF.md): checkpoints must be shared separately.
+
 A collaborative research project for developing a 2D deep-learning pipeline that distinguishes authentic CT/MRI scans from synthetically manipulated scans.
 
 ## Project status
@@ -125,7 +139,7 @@ preprocessing acceptance gate. The tested intensity floor is not active.
 
 ## Dataset and artifact policy
 
-Do not commit medical-image data, `.npy` files, CSV dataset exports containing sensitive or restricted information, trained model weights, checkpoints, or generated experiment output. Obtain the dataset through its authorized source and keep it outside version control.
+Do not commit medical-image data, `.npy` files, CSV dataset exports containing sensitive or restricted information, trained model weights, checkpoints, or large generated experiment output. Lightweight aggregate metrics may be committed under `results/`. Obtain the dataset through its authorized source and keep it outside version control.
 
 ## Collaboration
 
