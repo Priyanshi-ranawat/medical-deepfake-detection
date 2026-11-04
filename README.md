@@ -12,21 +12,10 @@ python scripts/run_matched_resnet.py --root /path/to/archive
 
 See [training settings](docs/RESNET_MATCHED_PROTOCOL.md) and
 [results](results/resnet18_metrics.csv) (all seeds, splits, and thresholds).
-[Team C handoff](docs/RESNET_TEAM_C_HANDOFF.md): checkpoints must be shared separately.
-
-A collaborative research project for developing a 2D deep-learning pipeline that distinguishes authentic CT/MRI scans from synthetically manipulated scans.
 
 ## Project status
 
 Repository setup is complete. Data ingestion, modeling, generalization experiments, interpretability work, and reporting are tracked in [PROJECT_TRACKER.md](PROJECT_TRACKER.md).
-
-**Team A's authoritative preprocessing specification is
-[contract v1](docs/PREPROCESSING_CONTRACT.md)**, with a
-[machine-readable snapshot](docs/preprocessing_contract_v1.json). It records the
-frozen defaults and interface; audit reports retain their historical scope.
-The [complete mechanical audit](docs/FULL_PREPROCESSING_AUDIT.md) passed all
-5,791 CT/MRI regions and all public loader splits; 57 tests pass. This work is
-ready for branch review; merge into main remains pending.
 
 ## Planned approach
 
