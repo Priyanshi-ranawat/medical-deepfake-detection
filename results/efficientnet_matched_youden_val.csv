@@ -1,0 +1,13 @@
+arch,modality,task,train_method,pretrained,split,auc,balanced_accuracy,recall,specificity,f1,fn,n_seeds
+efficientnet_b0,CT,injection,CTGAN,True,test_other,0.876 ± 0.029,0.631 ± 0.018,0.262 ± 0.037,1.000 ± 0.000,0.415 ± 0.045,232.333 ± 11.590,3
+efficientnet_b0,CT,injection,CTGAN,True,test_same,0.956 ± 0.008,0.933 ± 0.009,0.867 ± 0.018,1.000 ± 0.000,0.929 ± 0.010,42.000 ± 5.568,3
+efficientnet_b0,CT,injection,CTGAN,True,val,0.995 ± 0.001,0.974 ± 0.002,0.964 ± 0.007,0.985 ± 0.004,0.977 ± 0.003,8.333 ± 1.528,3
+efficientnet_b0,CT,injection,SD,True,test_other,0.859 ± 0.000,0.544 ± 0.000,0.089 ± 0.000,1.000 ± 0.000,0.163 ± 0.000,287.000 ± 0.000,1
+efficientnet_b0,CT,injection,SD,True,test_same,1.000 ± 0.000,0.997 ± 0.000,0.994 ± 0.000,1.000 ± 0.000,0.997 ± 0.000,2.000 ± 0.000,1
+efficientnet_b0,CT,injection,SD,True,val,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,0.000 ± 0.000,1
+efficientnet_b0,CT,removal,CTGAN,True,test_other,0.700 ± 0.026,0.596 ± 0.036,0.384 ± 0.086,0.808 ± 0.049,0.484 ± 0.073,45.000 ± 6.245,3
+efficientnet_b0,CT,removal,CTGAN,True,test_same,0.908 ± 0.022,0.817 ± 0.008,0.826 ± 0.040,0.808 ± 0.049,0.819 ± 0.007,12.667 ± 2.887,3
+efficientnet_b0,CT,removal,CTGAN,True,val,0.947 ± 0.004,0.886 ± 0.011,0.889 ± 0.049,0.883 ± 0.047,0.886 ± 0.013,6.000 ± 2.646,3
+efficientnet_b0,CT,removal,SD,True,test_other,0.524 ± 0.000,0.493 ± 0.000,0.000 ± 0.000,0.986 ± 0.000,0.000 ± 0.000,73.000 ± 0.000,1
+efficientnet_b0,CT,removal,SD,True,test_same,1.000 ± 0.000,0.986 ± 0.000,0.986 ± 0.000,0.986 ± 0.000,0.986 ± 0.000,1.000 ± 0.000,1
+efficientnet_b0,CT,removal,SD,True,val,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,0.000 ± 0.000,1

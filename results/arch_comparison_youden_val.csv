@@ -1,0 +1,25 @@
+arch,modality,task,train_method,pretrained,split,auc,balanced_accuracy,recall,specificity,f1,fn,n_seeds
+efficientnet_b0,CT,injection,CTGAN,True,test_other,0.876 ± 0.029,0.631 ± 0.018,0.262 ± 0.037,1.000 ± 0.000,0.415 ± 0.045,232.333 ± 11.590,3
+efficientnet_b0,CT,injection,CTGAN,True,test_same,0.956 ± 0.008,0.933 ± 0.009,0.867 ± 0.018,1.000 ± 0.000,0.929 ± 0.010,42.000 ± 5.568,3
+efficientnet_b0,CT,injection,CTGAN,True,val,0.995 ± 0.001,0.974 ± 0.002,0.964 ± 0.007,0.985 ± 0.004,0.977 ± 0.003,8.333 ± 1.528,3
+efficientnet_b0,CT,injection,SD,True,test_other,0.859 ± 0.000,0.544 ± 0.000,0.089 ± 0.000,1.000 ± 0.000,0.163 ± 0.000,287.000 ± 0.000,1
+efficientnet_b0,CT,injection,SD,True,test_same,1.000 ± 0.000,0.997 ± 0.000,0.994 ± 0.000,1.000 ± 0.000,0.997 ± 0.000,2.000 ± 0.000,1
+efficientnet_b0,CT,injection,SD,True,val,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,0.000 ± 0.000,1
+efficientnet_b0,CT,removal,CTGAN,True,test_other,0.700 ± 0.026,0.596 ± 0.036,0.384 ± 0.086,0.808 ± 0.049,0.484 ± 0.073,45.000 ± 6.245,3
+efficientnet_b0,CT,removal,CTGAN,True,test_same,0.908 ± 0.022,0.817 ± 0.008,0.826 ± 0.040,0.808 ± 0.049,0.819 ± 0.007,12.667 ± 2.887,3
+efficientnet_b0,CT,removal,CTGAN,True,val,0.947 ± 0.004,0.886 ± 0.011,0.889 ± 0.049,0.883 ± 0.047,0.886 ± 0.013,6.000 ± 2.646,3
+efficientnet_b0,CT,removal,SD,True,test_other,0.524 ± 0.000,0.493 ± 0.000,0.000 ± 0.000,0.986 ± 0.000,0.000 ± 0.000,73.000 ± 0.000,1
+efficientnet_b0,CT,removal,SD,True,test_same,1.000 ± 0.000,0.986 ± 0.000,0.986 ± 0.000,0.986 ± 0.000,0.986 ± 0.000,1.000 ± 0.000,1
+efficientnet_b0,CT,removal,SD,True,val,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,0.000 ± 0.000,1
+resnet18,CT,injection,CTGAN,True,test_other,0.864 ± 0.016,0.642 ± 0.019,0.286 ± 0.038,0.998 ± 0.004,0.443 ± 0.046,225.000 ± 12.000,3
+resnet18,CT,injection,CTGAN,True,test_same,0.948 ± 0.005,0.936 ± 0.002,0.875 ± 0.005,0.998 ± 0.004,0.933 ± 0.002,39.333 ± 1.528,3
+resnet18,CT,injection,CTGAN,True,val,0.996 ± 0.001,0.976 ± 0.004,0.981 ± 0.014,0.972 ± 0.016,0.981 ± 0.003,4.333 ± 3.215,3
+resnet18,CT,injection,SD,True,test_other,0.820 ± 0.000,0.644 ± 0.000,0.289 ± 0.000,1.000 ± 0.000,0.448 ± 0.000,224.000 ± 0.000,1
+resnet18,CT,injection,SD,True,test_same,1.000 ± 0.000,0.997 ± 0.000,0.994 ± 0.000,1.000 ± 0.000,0.997 ± 0.000,2.000 ± 0.000,1
+resnet18,CT,injection,SD,True,val,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,0.000 ± 0.000,1
+resnet18,CT,removal,CTGAN,True,test_other,0.679 ± 0.084,0.591 ± 0.077,0.429 ± 0.186,0.753 ± 0.036,0.498 ± 0.162,41.667 ± 13.577,3
+resnet18,CT,removal,CTGAN,True,test_same,0.912 ± 0.019,0.815 ± 0.014,0.877 ± 0.041,0.753 ± 0.036,0.826 ± 0.015,9.000 ± 3.000,3
+resnet18,CT,removal,CTGAN,True,val,0.913 ± 0.010,0.849 ± 0.014,0.870 ± 0.081,0.827 ± 0.093,0.852 ± 0.014,7.000 ± 4.359,3
+resnet18,CT,removal,SD,True,test_other,0.501 ± 0.000,0.486 ± 0.000,0.000 ± 0.000,0.973 ± 0.000,0.000 ± 0.000,73.000 ± 0.000,1
+resnet18,CT,removal,SD,True,test_same,0.999 ± 0.000,0.973 ± 0.000,0.973 ± 0.000,0.973 ± 0.000,0.973 ± 0.000,2.000 ± 0.000,1
+resnet18,CT,removal,SD,True,val,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,1.000 ± 0.000,0.000 ± 0.000,1
