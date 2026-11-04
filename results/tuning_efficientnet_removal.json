@@ -1,0 +1,78 @@
+{
+  "arch": "efficientnet_b0",
+  "task": "removal",
+  "train_method": "CTGAN",
+  "selection": "validation AUC (test never used for selection)",
+  "grid": [
+    {
+      "config": "lr0.0001_do0.3_wd0.01",
+      "val_auc": 0.9430727023319616,
+      "test_same_auc": 0.8823419027960218,
+      "test_other_auc": 0.6873709889285045
+    },
+    {
+      "config": "lr5e-05_do0.3_wd0.01",
+      "val_auc": 0.909122085048011,
+      "test_same_auc": 0.8782135485081629,
+      "test_other_auc": 0.6081816475886657
+    },
+    {
+      "config": "lr0.0002_do0.3_wd0.01",
+      "val_auc": 0.9523319615912208,
+      "test_same_auc": 0.9116156877462939,
+      "test_other_auc": 0.7175830362169263
+    },
+    {
+      "config": "lr0.0001_do0.5_wd0.01",
+      "val_auc": 0.934156378600823,
+      "test_same_auc": 0.9309438919121785,
+      "test_other_auc": 0.6770501032088572
+    },
+    {
+      "config": "lr5e-05_do0.5_wd0.01",
+      "val_auc": 0.890946502057613,
+      "test_same_auc": 0.8571964721336085,
+      "test_other_auc": 0.548132857947082
+    },
+    {
+      "config": "lr0.0002_do0.5_wd0.01",
+      "val_auc": 0.9495884773662551,
+      "test_same_auc": 0.9453931319196847,
+      "test_other_auc": 0.7320322762244323
+    },
+    {
+      "config": "lr0.0001_do0.3_wd0.1",
+      "val_auc": 0.943758573388203,
+      "test_same_auc": 0.8832801651341714,
+      "test_other_auc": 0.6866203790579847
+    },
+    {
+      "config": "lr0.0001_do0.5_wd0.1",
+      "val_auc": 0.934156378600823,
+      "test_same_auc": 0.9313191968474385,
+      "test_other_auc": 0.6772377556764871
+    }
+  ],
+  "baseline_config": "lr0.0001_do0.3_wd0.01",
+  "best_config": "lr0.0002_do0.3_wd0.01",
+  "best_3seed": {
+    "val": {
+      "auc_mean": 0.95679012345679,
+      "auc_sd": 0.0038646871294872303,
+      "fn_recall95_mean": 2.0,
+      "recall_recall95_mean": 0.9629629629629629
+    },
+    "test_same": {
+      "auc_mean": 0.9247513604803904,
+      "auc_sd": 0.011451414000669798,
+      "fn_recall95_mean": 5.666666666666667,
+      "recall_recall95_mean": 0.9223744292237442
+    },
+    "test_other": {
+      "auc_mean": 0.7438543816851192,
+      "auc_sd": 0.028334901239522408,
+      "fn_recall95_mean": 27.0,
+      "recall_recall95_mean": 0.6301369863013698
+    }
+  }
+}
