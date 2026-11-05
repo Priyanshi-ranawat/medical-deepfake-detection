@@ -49,6 +49,9 @@ weights/
 
 # Generated experiment artifacts
 outputs/
+official_outputs/
+runs_reproduced/
+smoke_outputs/
 runs/
 artifacts/
 logs/
