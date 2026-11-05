@@ -4,23 +4,65 @@ A collaborative research project for developing a 2D deep-learning pipeline that
 
 ## Project status
 
-Repository setup is complete. Data ingestion, modeling, generalization experiments, interpretability work, and reporting are tracked in [PROJECT_TRACKER.md](PROJECT_TRACKER.md).
+The data loaders, ResNet/EfficientNet classifiers, evaluation pipeline, and Team C
+interpretability workflow are implemented. Team C evaluated all 29 supplied
+checkpoints (21 EfficientNet and 8 ResNet), producing 11,546 Grad-CAM alignment
+rows and 340 true-positive heatmap/overlay pairs. See the
+[Team C results report](docs/TEAM_C_RESULTS.md) and [PROJECT_TRACKER.md](PROJECT_TRACKER.md).
 
 **Team A's authoritative preprocessing specification is
 [contract v1](docs/PREPROCESSING_CONTRACT.md)**, with a
 [machine-readable snapshot](docs/preprocessing_contract_v1.json). It records the
 frozen defaults and interface; audit reports retain their historical scope.
 The [complete mechanical audit](docs/FULL_PREPROCESSING_AUDIT.md) passed all
-5,791 CT/MRI regions and all public loader splits; 57 tests pass. This work is
-ready for branch review; merge into main remains pending.
+5,791 CT/MRI regions and all public loader splits; the combined repository suite
+has 94 passing tests.
 
-## Planned approach
+## Implemented approach
 
 - Load CT `.npy` slices and MRI grayscale PNGs from the BTD test sets.
 - Train ResNet and EfficientNet binary classifiers.
 - Evaluate generalization across GAN- and diffusion-based manipulations.
 - Generate Grad-CAM heatmaps for model interpretation.
 - Track accuracy, precision, recall, F1 score, and false negatives.
+
+## Explainability and reporting
+
+`src/interpretability.py` implements Grad-CAM for both model families, saves
+heatmaps/overlays for correctly detected manipulated samples, and measures whether
+the hottest heatmap pixel is close to the CSV manipulation coordinate. It reports
+Euclidean distance, Hit@16, Hit@32, and top-region containment.
+
+Run one checkpoint:
+
+```bash
+python -m src.interpretability \
+  --checkpoint /path/to/checkpoint.pt \
+  --root "$BTD_DATA_ROOT" \
+  --output outputs/gradcam_run \
+  --save-overlays \
+  --visual-selection true-positive
+```
+
+Run and summarize a directory of checkpoints:
+
+```bash
+python scripts/run_all_gradcam.py \
+  --checkpoint-root /path/to/checkpoint-export \
+  --data-root "$BTD_DATA_ROOT" \
+  --output-root outputs/all_checkpoints
+
+python -m src.summarize_all_gradcam \
+  --output-root outputs/all_checkpoints \
+  --checkpoint-root /path/to/checkpoint-export \
+  --evaluation-export /path/to/evaluation-export/runs \
+  --report-output outputs/all_checkpoints_report
+```
+
+Lightweight, path-free aggregate results are tracked in
+[the cross-reference table](results/gradcam_all_cross_reference.csv),
+[per-run localization summary](results/gradcam_localization_per_run.csv), and
+[per-run classifier summary](results/gradcam_classifier_per_run.csv).
 
 ## Repository layout
 
@@ -125,7 +167,11 @@ preprocessing acceptance gate. The tested intensity floor is not active.
 
 ## Dataset and artifact policy
 
-Do not commit medical-image data, `.npy` files, CSV dataset exports containing sensitive or restricted information, trained model weights, checkpoints, or generated experiment output. Obtain the dataset through its authorized source and keep it outside version control.
+Do not commit medical-image data, `.npy` files, dataset CSV exports containing
+sensitive paths or restricted information, trained model weights, checkpoints, or
+image-level experiment artifacts. Obtain the dataset through its authorized source
+and keep it outside version control. Path-free aggregate summary tables are allowed
+under `results/`.
 
 ## Collaboration
 

@@ -28,8 +28,8 @@ the final mechanical audit. The [JSON snapshot](docs/preprocessing_contract_v1.j
 records defaults, schemas, and source/manifest hashes. Six public loader interfaces
 were checked against it; runtime preprocessing was unchanged during the freeze.
 The [complete-data mechanical audit](docs/FULL_PREPROCESSING_AUDIT.md) now passes
-all 5,791 regions / 5,285 files and 8,574 public-loader deliveries. All 57 tests pass.
-Review/publication remain pending.
+all 5,791 regions / 5,285 files and 8,574 public-loader deliveries. The original
+Team A suite has 57 tests; the combined repository suite has 94 passing tests.
 
 Current Team A review: further mitigation experiments are paused. The
 [preprocessing correctness review](docs/PREPROCESSING_VERIFICATION.md) checks
@@ -51,20 +51,20 @@ frozen-baseline audit; 57 tests pass across CT/MRI. Review and merge remain pend
 - [x] Finalize project scope and proposal.
 - [x] Initialize GitHub repository (`README.md`, `.gitignore`).
 - [x] **Team A:** Download the BTD dataset from Kaggle to local machines (do not push to GitHub).
-- [ ] **Team A:** Write `src/data_loader.py` to load `.npy` files. *(Implemented; complete frozen-baseline mechanical audit passes. Review/merge pending.)*
-- [ ] **Team A:** Implement intensity normalization and 1-to-3 channel duplication. *(Implemented and mechanically verified on every CT/MRI row. Review/merge pending.)*
-- [ ] **Team A:** Parse dataset CSVs to create distinct Training, Validation, and Test splits. Ensure splits are isolated by manipulation type (CTGAN vs. Diffusion). *(`src/splits.py`; all public split deliveries and source isolation verified. CT tasks must remain separate. Review/merge pending.)*
+- [x] **Team A:** Write `src/data_loader.py` to load `.npy` files. *(Implemented; complete frozen-baseline mechanical audit passes.)*
+- [x] **Team A:** Implement intensity normalization and 1-to-3 channel duplication. *(Implemented and mechanically verified on every CT/MRI row.)*
+- [x] **Team A:** Parse dataset CSVs to create distinct Training, Validation, and Test splits. Ensure splits are isolated by manipulation type (CTGAN vs. Diffusion). *(`src/splits.py`; all public split deliveries and source isolation verified. CT tasks remain separate.)*
 - [ ] **Team A:** Run the shortcut checks (slice position, scanner, file type) and decide whether to turn on the slice filter.
-- [ ] **Team A (stretch):** Add MRI (`.png`) loading after the CT pipeline is confirmed. *(Implemented locally; all 700 rows and every MRI public split pass the frozen-default mechanical audit. Resized metadata uses pixel-center geometry; 57 tests pass. Background AUC is an observation, not an acceptance gate; mitigation is paused. See [MRI_DATA_HANDOFF.md](docs/MRI_DATA_HANDOFF.md). Review/merge pending.)*
+- [x] **Team A (stretch):** Add MRI (`.png`) loading after the CT pipeline is confirmed. *(Implemented; all 700 rows and every MRI public split pass the frozen-default mechanical audit. See [MRI_DATA_HANDOFF.md](docs/MRI_DATA_HANDOFF.md).)*
 
 ### Phase 2: Baselines & Midterm Report (Weeks 4-6)
 
 **Goal:** Achieve initial classification results and submit the Midterm.
 
-- [ ] **Team B:** Build the standard ResNet and EfficientNet architectures in `src/models.py`.
-- [ ] **Team B:** Write the training loop in `src/train.py`.
-- [ ] **Team B:** Train the baseline binary classifier (Authentic vs. Manipulated) using the CTGAN training split.
-- [ ] **Team B:** Record initial Accuracy, Precision, Recall, and F1-Score (focus heavily on tracking False Negatives).
+- [x] **Team B:** Build the standard ResNet and EfficientNet architectures in `src/models.py`.
+- [x] **Team B:** Write the training loop in `src/train.py`.
+- [x] **Team B:** Train the baseline binary classifier (Authentic vs. Manipulated) using the CTGAN training split.
+- [x] **Team B:** Record initial Accuracy, Precision, Recall, and F1-Score (focus heavily on tracking False Negatives).
 - [ ] **Team C:** Outline and draft the Midterm Report, incorporating the literature review and baseline metrics.
 - [ ] **All:** Review and submit Midterm Report.
 
@@ -72,17 +72,17 @@ frozen-baseline audit; 57 tests pass across CT/MRI. Review and merge remain pend
 
 **Goal:** Test model robustness and implement Explainable AI.
 
-- [ ] **Team B:** Conduct Generalization Experiments (e.g., test the CTGAN-trained model on the Stable Diffusion test set).
-- [ ] **Team B:** Perform hyperparameter tuning to optimize performance and reduce false negatives.
-- [ ] **Team C:** Implement Grad-CAM in `src/interpretability.py`.
-- [ ] **Team C:** Generate visual heatmaps for true positive predictions (correctly identified deepfakes).
-- [ ] **Team C:** Write a script/function to verify if the "hottest" heatmap regions mathematically align with the $(x, y)$ coordinates provided in the dataset CSVs.
+- [x] **Team B:** Conduct Generalization Experiments (e.g., test the CTGAN-trained model on the Stable Diffusion test set).
+- [x] **Team B:** Perform hyperparameter tuning to optimize performance and reduce false negatives.
+- [x] **Team C:** Implement Grad-CAM in `src/interpretability.py`.
+- [x] **Team C:** Generate visual heatmaps for true positive predictions (correctly identified deepfakes).
+- [x] **Team C:** Write a script/function to verify if the "hottest" heatmap regions mathematically align with the $(x, y)$ coordinates provided in the dataset CSVs.
 
 ### Phase 4: Dissemination & Poster Defense (Week 11)
 
 **Goal:** Finalize documentation and prep for the presentation.
 
-- [ ] **Team C:** Draft the Final Report (Methodology, Results, Error Analysis).
+- [x] **Team C:** Draft the Final Report (Methodology, Results, Error Analysis). See [Team C results](docs/TEAM_C_RESULTS.md).
 - [ ] **All:** Design the presentation poster.
 - [ ] **All:** Conduct internal Q&A sessions. Ensure every member can confidently explain the data pipeline, the CNN architecture, and the Grad-CAM results.
 - [ ] **All:** November 30 - Poster Defense!
