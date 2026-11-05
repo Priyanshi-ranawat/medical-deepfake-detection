@@ -30,6 +30,9 @@ def parse_args():
     p.add_argument("--num-workers", type=int, default=0)
     p.add_argument("--device", default=None)
     p.add_argument("--save-overlays", action="store_true")
+    p.add_argument("--visual-selection", choices=["true-positive", "false-negative", "all-manipulated"],
+                   default="true-positive",
+                   help="which manipulated rows receive PNG heatmaps; metrics still cover every fake row")
     p.add_argument("--max-overlays", type=int, default=100, help="0 means no limit")
     p.add_argument("--limit-batches", type=int, default=0, help="smoke-test limit per split")
     return p.parse_args()
@@ -109,6 +112,16 @@ def save_heatmap(path, cam, point, peak, title):
     plt.close(fig)
 
 
+def _selected_for_visual(correct: bool, selection: str) -> bool:
+    if selection == "true-positive":
+        return correct
+    if selection == "false-negative":
+        return not correct
+    if selection == "all-manipulated":
+        return True
+    raise ValueError(f"unknown visual selection {selection!r}")
+
+
 def analyze(args):
     device = pick_device(args.device)
     checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=False)
@@ -129,6 +142,7 @@ def analyze(args):
     output.mkdir(parents=True, exist_ok=True)
     threshold = checkpoint.get("thresholds", {}).get("youden_val", 0.5)
     train_method = run_args.get("train_method", "CTGAN") if run_args["modality"] == "CT" else "SD"
+    visual_selection = getattr(args, "visual_selection", "true-positive")
     rows, visual_counts = [], {split: 0 for split in splits}
     with GradCAM(model, gradcam_target_layer(model, run_args["arch"])) as gradcam:
         for split in splits:
@@ -175,7 +189,7 @@ def analyze(args):
                             _meta_value(meta, "coordinate_convention", source_i)
                         )
                     split_visual_index = visual_counts[split]
-                    if args.save_overlays and (
+                    if args.save_overlays and _selected_for_visual(row["correct"], visual_selection) and (
                         args.max_overlays == 0 or split_visual_index < args.max_overlays
                     ):
                         name = f"{split}_{split_visual_index:05d}.png"
@@ -208,6 +222,7 @@ def analyze(args):
         "n_visuals_by_split": visual_counts,
         "n_overlays": sum(visual_counts.values()),
         "n_heatmaps": sum(visual_counts.values()),
+        "visual_selection": visual_selection,
         "alignment_note": "CSV annotations are points, not manipulation masks.",
     }
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2, default=str))

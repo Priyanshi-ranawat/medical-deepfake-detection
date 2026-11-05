@@ -46,7 +46,7 @@ def test_analysis_writes_tables_manifest_and_overlays(tmp_path, monkeypatch):
                  "train_method": "CTGAN", "dropout": 0.0, "seed": 0},
         "epoch": 2,
         "val_auc": 0.9,
-        "thresholds": {"youden_val": 0.4},
+        "thresholds": {"youden_val": 0.0},
     }
     checkpoint_path = tmp_path / "best.pt"
     torch.save(checkpoint, checkpoint_path)
@@ -59,7 +59,7 @@ def test_analysis_writes_tables_manifest_and_overlays(tmp_path, monkeypatch):
     output = tmp_path / "gradcam"
     args = Namespace(checkpoint=str(checkpoint_path), root=None, output=str(output), splits=["val"],
                      batch_size=2, num_workers=0, device="cpu", save_overlays=True,
-                     max_overlays=1, limit_batches=0)
+                     max_overlays=1, limit_batches=0, visual_selection="true-positive")
     explain.analyze(args)
 
     alignment = pd.read_csv(output / "alignment.csv")
@@ -69,6 +69,15 @@ def test_analysis_writes_tables_manifest_and_overlays(tmp_path, monkeypatch):
     assert (output / "manifest.json").is_file()
     assert len(list((output / "overlays").glob("*.png"))) == 1
     assert len(list((output / "heatmaps").glob("*.png"))) == 1
+
+
+def test_visual_selection_matches_prediction_outcome():
+    assert explain._selected_for_visual(True, "true-positive")
+    assert not explain._selected_for_visual(False, "true-positive")
+    assert explain._selected_for_visual(False, "false-negative")
+    assert explain._selected_for_visual(True, "all-manipulated")
+    with pytest.raises(ValueError, match="unknown visual selection"):
+        explain._selected_for_visual(True, "unknown")
 
 
 def test_coordinate_contract_rejects_augmented_or_unknown_metadata():

@@ -1,6 +1,7 @@
 # Team C Grad-CAM protocol
 
-`src.explain` reconstructs a trained one-logit detector from `best.pt`, uses the
+`src.interpretability` is the requested public Team C module. Its CLI delegates
+to `src.explain`, which reconstructs a trained one-logit detector from `best.pt`, uses the
 architecture-specific target returned by `src.models.gradcam_target_layer`, and
 computes Grad-CAM for the manipulated logit. It analyzes manipulated rows only.
 
@@ -12,7 +13,7 @@ coordinates.
 Run from the repository root:
 
 ```bash
-python -m src.explain \
+python -m src.interpretability \
   --checkpoint runs/resnet18_CT_injection_CTGAN_pre_seed0/best.pt \
   --root "$BTD_DATA_ROOT" \
   --output runs/resnet18_CT_injection_CTGAN_pre_seed0/gradcam \
@@ -23,6 +24,10 @@ python -m src.explain \
 The command writes `alignment.csv`, `summary.csv`, `manifest.json`, standalone
 heatmaps, and overlays. Green crosses are CSV points; cyan circles are CAM maxima.
 `--max-overlays` applies per split; set it to `0` to save every manipulated image.
+By default PNGs are saved only for true positives, matching the project plan;
+`alignment.csv` still includes every manipulated row so false-negative behavior
+can be cross-referenced. Use `--visual-selection false-negative` or
+`--visual-selection all-manipulated` for those additional visual audits.
 
 ## Valid comparisons
 
