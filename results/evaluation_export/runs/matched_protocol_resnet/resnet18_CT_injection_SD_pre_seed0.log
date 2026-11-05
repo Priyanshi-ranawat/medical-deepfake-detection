@@ -1,0 +1,26 @@
+run resnet18_CT_injection_SD_pre_seed0 on mps
+split sizes: {'train': 1731, 'val': 384, 'test_same': 456, 'test_other': 456} | train authentic=903 fake=828
+epoch  0 [head] train_loss 0.7006 val_loss 0.6295 val_auc 0.7595 (10.7s)
+epoch  1 [head] train_loss 0.6364 val_loss 0.6274 val_auc 0.8142 (9.8s)
+epoch  2 [head] train_loss 0.5853 val_loss 0.5444 val_auc 0.8421 (9.8s)
+epoch  3 [full] train_loss 0.2538 val_loss 0.3838 val_auc 0.9764 (24.5s)
+epoch  4 [full] train_loss 0.0907 val_loss 1.0190 val_auc 0.9528 (24.8s)
+epoch  5 [full] train_loss 0.0424 val_loss 6.1643 val_auc 0.8710 (24.6s)
+epoch  6 [full] train_loss 0.0342 val_loss 0.1605 val_auc 0.9960 (24.0s)
+epoch  7 [full] train_loss 0.0232 val_loss 7.0909 val_auc 0.7892 (24.0s)
+epoch  8 [full] train_loss 0.0480 val_loss 8.0284 val_auc 0.8491 (24.1s)
+epoch  9 [full] train_loss 0.0815 val_loss 0.1377 val_auc 0.9940 (23.7s)
+epoch 10 [full] train_loss 0.0633 val_loss 6.5472 val_auc 0.9388 (23.8s)
+epoch 11 [full] train_loss 0.0158 val_loss 0.0144 val_auc 1.0000 (23.8s)
+epoch 12 [full] train_loss 0.0135 val_loss 0.0350 val_auc 0.9991 (23.8s)
+epoch 13 [full] train_loss 0.0057 val_loss 0.0173 val_auc 0.9999 (23.7s)
+epoch 14 [full] train_loss 0.0046 val_loss 0.3013 val_auc 0.9945 (24.6s)
+epoch 15 [full] train_loss 0.0224 val_loss 0.0714 val_auc 0.9984 (24.0s)
+epoch 16 [full] train_loss 0.0336 val_loss 0.1445 val_auc 0.9903 (23.9s)
+epoch 17 [full] train_loss 0.0161 val_loss 0.0592 val_auc 0.9981 (23.8s)
+epoch 18 [full] train_loss 0.0107 val_loss 0.3227 val_auc 0.9823 (23.8s)
+early stop: no val AUC gain for 7 epochs
+val        n= 384 AUC 1.000 | @youden: bal_acc 1.000 recall 1.000 spec 1.000 F1 1.000 FN 0
+test_same  n= 456 AUC 1.000 | @youden: bal_acc 0.997 recall 0.994 spec 1.000 F1 0.997 FN 2
+test_other n= 456 AUC 0.820 | @youden: bal_acc 0.644 recall 0.289 spec 1.000 F1 0.448 FN 224
+saved to runs/resnet18_CT_injection_SD_pre_seed0

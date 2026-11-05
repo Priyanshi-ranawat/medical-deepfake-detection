@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "-u",
+    "-m",
+    "src.train",
+    "--arch",
+    "resnet18",
+    "--task",
+    "injection",
+    "--train-method",
+    "CTGAN",
+    "--seed",
+    "2"
+  ],
+  "environment": {
+    "BTD_DATA_ROOT": "/Users/krishitavipinjain/Desktop/archive",
+    "TORCH_HOME": "/Users/krishitavipinjain/Desktop/medical-deepfake-detection/weights",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4"
+  }
+}

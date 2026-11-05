@@ -1,0 +1,33 @@
+run efficientnet_b0_CT_removal_CTGAN_pre_seed1 on mps
+split sizes: {'train': 510, 'val': 108, 'test_same': 146, 'test_other': 146} | train authentic=255 fake=255
+epoch  0 [head] train_loss 0.7097 val_loss 0.6982 val_auc 0.4897 (3.6s)
+epoch  1 [head] train_loss 0.6820 val_loss 0.6898 val_auc 0.5604 (3.1s)
+epoch  2 [head] train_loss 0.6849 val_loss 0.6851 val_auc 0.5933 (3.1s)
+epoch  3 [full] train_loss 0.6891 val_loss 0.6770 val_auc 0.6283 (9.1s)
+epoch  4 [full] train_loss 0.6593 val_loss 0.6661 val_auc 0.6560 (8.6s)
+epoch  5 [full] train_loss 0.6321 val_loss 0.6597 val_auc 0.6622 (8.8s)
+epoch  6 [full] train_loss 0.5816 val_loss 0.6253 val_auc 0.7260 (8.8s)
+epoch  7 [full] train_loss 0.5199 val_loss 0.5807 val_auc 0.7565 (8.8s)
+epoch  8 [full] train_loss 0.4921 val_loss 0.5075 val_auc 0.8374 (8.8s)
+epoch  9 [full] train_loss 0.4356 val_loss 0.4929 val_auc 0.8433 (8.8s)
+epoch 10 [full] train_loss 0.3847 val_loss 0.4574 val_auc 0.8669 (8.9s)
+epoch 11 [full] train_loss 0.3303 val_loss 0.4274 val_auc 0.8855 (8.9s)
+epoch 12 [full] train_loss 0.3155 val_loss 0.3697 val_auc 0.9170 (9.2s)
+epoch 13 [full] train_loss 0.2673 val_loss 0.3867 val_auc 0.9160 (9.4s)
+epoch 14 [full] train_loss 0.2444 val_loss 0.3719 val_auc 0.9266 (9.3s)
+epoch 15 [full] train_loss 0.2501 val_loss 0.3769 val_auc 0.9119 (9.2s)
+epoch 16 [full] train_loss 0.2363 val_loss 0.3593 val_auc 0.9321 (9.2s)
+epoch 17 [full] train_loss 0.2097 val_loss 0.3344 val_auc 0.9369 (9.4s)
+epoch 18 [full] train_loss 0.1725 val_loss 0.2941 val_auc 0.9496 (9.5s)
+epoch 19 [full] train_loss 0.1860 val_loss 0.3014 val_auc 0.9475 (9.1s)
+epoch 20 [full] train_loss 0.1887 val_loss 0.3181 val_auc 0.9376 (9.3s)
+epoch 21 [full] train_loss 0.1383 val_loss 0.3075 val_auc 0.9424 (9.4s)
+epoch 22 [full] train_loss 0.1538 val_loss 0.3147 val_auc 0.9410 (9.5s)
+epoch 23 [full] train_loss 0.1478 val_loss 0.3190 val_auc 0.9393 (9.5s)
+epoch 24 [full] train_loss 0.1508 val_loss 0.3253 val_auc 0.9393 (9.5s)
+epoch 25 [full] train_loss 0.1482 val_loss 0.3217 val_auc 0.9386 (9.5s)
+early stop: no val AUC gain for 7 epochs
+val        n= 108 AUC 0.950 | @youden: bal_acc 0.898 recall 0.907 spec 0.889 F1 0.899 FN 5
+test_same  n= 146 AUC 0.923 | @youden: bal_acc 0.822 recall 0.849 spec 0.795 F1 0.827 FN 11
+test_other n= 146 AUC 0.683 | @youden: bal_acc 0.555 recall 0.315 spec 0.795 F1 0.414 FN 50
+saved to runs/efficientnet_b0_CT_removal_CTGAN_pre_seed1

@@ -1,0 +1,119 @@
+{
+  "run": "resnet18_MRI_removal_SD_pre_seed2",
+  "args": {
+    "modality": "MRI",
+    "task": "removal",
+    "train_method": "CTGAN",
+    "arch": "resnet18",
+    "pretrained": true,
+    "epochs": 30,
+    "freeze_epochs": 3,
+    "head_lr": 0.001,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "dropout": 0.3,
+    "batch_size": 32,
+    "patience": 7,
+    "recall_target": 0.95,
+    "seed": 2,
+    "num_workers": 0,
+    "root": null,
+    "out": "runs",
+    "device": null,
+    "limit_batches": 0
+  },
+  "best_epoch": 5,
+  "thresholds": {
+    "default_0.5": 0.5,
+    "youden_val": 0.043172016739845276,
+    "recall0.95_val": 0.043172016739845276
+  },
+  "splits": {
+    "val": {
+      "n": 56,
+      "auc": 1.0,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.7857142857142857,
+        "balanced_accuracy": 0.7857142857142857,
+        "precision": 1.0,
+        "recall": 0.5714285714285714,
+        "specificity": 1.0,
+        "f1": 0.7272727272727273,
+        "tp": 16,
+        "tn": 28,
+        "fp": 0,
+        "fn": 12
+      },
+      "youden_val": {
+        "threshold": 0.043172016739845276,
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "tp": 28,
+        "tn": 28,
+        "fp": 0,
+        "fn": 0
+      },
+      "recall0.95_val": {
+        "threshold": 0.043172016739845276,
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "tp": 28,
+        "tn": 28,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "test": {
+      "n": 56,
+      "auc": 0.9630102040816326,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.7321428571428571,
+        "balanced_accuracy": 0.7321428571428572,
+        "precision": 1.0,
+        "recall": 0.4642857142857143,
+        "specificity": 1.0,
+        "f1": 0.6341463414634146,
+        "tp": 13,
+        "tn": 28,
+        "fp": 0,
+        "fn": 15
+      },
+      "youden_val": {
+        "threshold": 0.043172016739845276,
+        "accuracy": 0.8928571428571429,
+        "balanced_accuracy": 0.8928571428571429,
+        "precision": 0.8928571428571429,
+        "recall": 0.8928571428571429,
+        "specificity": 0.8928571428571429,
+        "f1": 0.8928571428571429,
+        "tp": 25,
+        "tn": 25,
+        "fp": 3,
+        "fn": 3
+      },
+      "recall0.95_val": {
+        "threshold": 0.043172016739845276,
+        "accuracy": 0.8928571428571429,
+        "balanced_accuracy": 0.8928571428571429,
+        "precision": 0.8928571428571429,
+        "recall": 0.8928571428571429,
+        "specificity": 0.8928571428571429,
+        "f1": 0.8928571428571429,
+        "tp": 25,
+        "tn": 25,
+        "fp": 3,
+        "fn": 3
+      }
+    }
+  }
+}

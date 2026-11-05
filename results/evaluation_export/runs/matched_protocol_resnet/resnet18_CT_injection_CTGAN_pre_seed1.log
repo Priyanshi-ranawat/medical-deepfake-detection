@@ -1,0 +1,28 @@
+run resnet18_CT_injection_CTGAN_pre_seed1 on mps
+split sizes: {'train': 1731, 'val': 384, 'test_same': 456, 'test_other': 456} | train authentic=903 fake=828
+epoch  0 [head] train_loss 0.6794 val_loss 0.6588 val_auc 0.8668 (9.5s)
+epoch  1 [head] train_loss 0.6101 val_loss 0.5705 val_auc 0.9034 (9.6s)
+epoch  2 [head] train_loss 0.5679 val_loss 0.5071 val_auc 0.9056 (9.6s)
+epoch  3 [full] train_loss 0.2280 val_loss 0.1446 val_auc 0.9907 (24.2s)
+epoch  4 [full] train_loss 0.0771 val_loss 0.1114 val_auc 0.9938 (24.0s)
+epoch  5 [full] train_loss 0.0947 val_loss 0.2060 val_auc 0.9824 (23.8s)
+epoch  6 [full] train_loss 0.0514 val_loss 0.1020 val_auc 0.9939 (24.1s)
+epoch  7 [full] train_loss 0.0329 val_loss 0.1474 val_auc 0.9907 (23.7s)
+epoch  8 [full] train_loss 0.0464 val_loss 0.1752 val_auc 0.9875 (23.6s)
+epoch  9 [full] train_loss 0.0595 val_loss 0.1105 val_auc 0.9938 (23.6s)
+epoch 10 [full] train_loss 0.0197 val_loss 0.1011 val_auc 0.9934 (23.7s)
+epoch 11 [full] train_loss 0.0313 val_loss 0.0930 val_auc 0.9961 (23.6s)
+epoch 12 [full] train_loss 0.0158 val_loss 0.1263 val_auc 0.9945 (23.8s)
+epoch 13 [full] train_loss 0.0176 val_loss 0.0733 val_auc 0.9973 (23.6s)
+epoch 14 [full] train_loss 0.0104 val_loss 0.1354 val_auc 0.9939 (23.5s)
+epoch 15 [full] train_loss 0.0069 val_loss 0.1143 val_auc 0.9952 (23.5s)
+epoch 16 [full] train_loss 0.0325 val_loss 0.0881 val_auc 0.9968 (23.5s)
+epoch 17 [full] train_loss 0.0196 val_loss 0.1281 val_auc 0.9934 (23.5s)
+epoch 18 [full] train_loss 0.0068 val_loss 0.1169 val_auc 0.9964 (23.6s)
+epoch 19 [full] train_loss 0.0113 val_loss 0.1232 val_auc 0.9959 (23.8s)
+epoch 20 [full] train_loss 0.0061 val_loss 0.1304 val_auc 0.9960 (23.4s)
+early stop: no val AUC gain for 7 epochs
+val        n= 384 AUC 0.997 | @youden: bal_acc 0.980 recall 0.987 spec 0.974 F1 0.985 FN 3
+test_same  n= 456 AUC 0.950 | @youden: bal_acc 0.936 recall 0.879 spec 0.993 F1 0.934 FN 38
+test_other n= 456 AUC 0.846 | @youden: bal_acc 0.639 recall 0.286 spec 0.993 F1 0.443 FN 225
+saved to runs/resnet18_CT_injection_CTGAN_pre_seed1

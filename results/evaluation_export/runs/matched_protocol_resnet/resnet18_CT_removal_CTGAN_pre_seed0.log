@@ -1,0 +1,45 @@
+run resnet18_CT_removal_CTGAN_pre_seed0 on mps
+split sizes: {'train': 510, 'val': 108, 'test_same': 146, 'test_other': 146} | train authentic=255 fake=255
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /Users/krishitavipinjain/Desktop/medical-deepfake-detection/weights/hub/checkpoints/resnet18-f37072fd.pth
+
+  0%|          | 0.00/44.7M [00:00<?, ?B/s]
+  7%|▋         | 3.25M/44.7M [00:00<00:01, 33.9MB/s]
+ 17%|█▋        | 7.75M/44.7M [00:00<00:00, 41.6MB/s]
+ 27%|██▋       | 12.2M/44.7M [00:00<00:00, 43.7MB/s]
+ 38%|███▊      | 17.0M/44.7M [00:00<00:00, 46.1MB/s]
+ 49%|████▊     | 21.8M/44.7M [00:00<00:00, 47.1MB/s]
+ 59%|█████▉    | 26.2M/44.7M [00:00<00:00, 47.0MB/s]
+ 69%|██████▉   | 30.8M/44.7M [00:00<00:00, 46.8MB/s]
+ 79%|███████▉  | 35.2M/44.7M [00:00<00:00, 43.2MB/s]
+ 92%|█████████▏| 41.2M/44.7M [00:00<00:00, 48.7MB/s]
+100%|██████████| 44.7M/44.7M [00:01<00:00, 46.4MB/s]
+epoch  0 [head] train_loss 0.7189 val_loss 0.7084 val_auc 0.5141 (3.4s)
+epoch  1 [head] train_loss 0.7053 val_loss 0.6927 val_auc 0.5456 (2.1s)
+epoch  2 [head] train_loss 0.7031 val_loss 0.7036 val_auc 0.5734 (2.1s)
+epoch  3 [full] train_loss 0.7022 val_loss 0.6661 val_auc 0.6389 (5.9s)
+epoch  4 [full] train_loss 0.5851 val_loss 0.6494 val_auc 0.6879 (4.7s)
+epoch  5 [full] train_loss 0.5158 val_loss 0.8210 val_auc 0.6951 (4.7s)
+epoch  6 [full] train_loss 0.4953 val_loss 0.5137 val_auc 0.8337 (4.7s)
+epoch  7 [full] train_loss 0.3911 val_loss 0.6760 val_auc 0.8196 (4.8s)
+epoch  8 [full] train_loss 0.3249 val_loss 0.5425 val_auc 0.8488 (4.8s)
+epoch  9 [full] train_loss 0.2712 val_loss 0.5482 val_auc 0.8440 (4.8s)
+epoch 10 [full] train_loss 0.2306 val_loss 0.9430 val_auc 0.7860 (4.8s)
+epoch 11 [full] train_loss 0.1895 val_loss 0.6116 val_auc 0.8196 (4.8s)
+epoch 12 [full] train_loss 0.1799 val_loss 0.7640 val_auc 0.8519 (4.8s)
+epoch 13 [full] train_loss 0.1903 val_loss 0.7862 val_auc 0.8224 (4.8s)
+epoch 14 [full] train_loss 0.1617 val_loss 0.5718 val_auc 0.8738 (4.9s)
+epoch 15 [full] train_loss 0.1387 val_loss 0.5236 val_auc 0.8844 (5.0s)
+epoch 16 [full] train_loss 0.1157 val_loss 0.8472 val_auc 0.8289 (5.1s)
+epoch 17 [full] train_loss 0.1109 val_loss 0.5622 val_auc 0.9174 (5.2s)
+epoch 18 [full] train_loss 0.0659 val_loss 0.6541 val_auc 0.9143 (5.3s)
+epoch 19 [full] train_loss 0.0897 val_loss 0.7557 val_auc 0.8971 (5.3s)
+epoch 20 [full] train_loss 0.0787 val_loss 0.5498 val_auc 0.8930 (5.4s)
+epoch 21 [full] train_loss 0.0676 val_loss 0.5625 val_auc 0.9029 (5.4s)
+epoch 22 [full] train_loss 0.0547 val_loss 0.5213 val_auc 0.9102 (5.5s)
+epoch 23 [full] train_loss 0.0556 val_loss 0.4754 val_auc 0.9105 (5.5s)
+epoch 24 [full] train_loss 0.0386 val_loss 0.4897 val_auc 0.9084 (5.5s)
+early stop: no val AUC gain for 7 epochs
+val        n= 108 AUC 0.917 | @youden: bal_acc 0.852 recall 0.778 spec 0.926 F1 0.840 FN 12
+test_same  n= 146 AUC 0.890 | @youden: bal_acc 0.801 recall 0.836 spec 0.767 F1 0.808 FN 12
+test_other n= 146 AUC 0.665 | @youden: bal_acc 0.610 recall 0.452 spec 0.767 F1 0.537 FN 40
+saved to runs/resnet18_CT_removal_CTGAN_pre_seed0

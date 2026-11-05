@@ -1,0 +1,162 @@
+{
+  "run": "efficientnet_b0_CT_removal_CTGAN_pre_seed0",
+  "args": {
+    "modality": "CT",
+    "task": "removal",
+    "train_method": "CTGAN",
+    "arch": "efficientnet_b0",
+    "pretrained": true,
+    "epochs": 30,
+    "freeze_epochs": 3,
+    "head_lr": 0.001,
+    "lr": 5e-05,
+    "weight_decay": 0.01,
+    "dropout": 0.3,
+    "batch_size": 32,
+    "patience": 7,
+    "recall_target": 0.95,
+    "seed": 0,
+    "num_workers": 0,
+    "root": null,
+    "out": "/Users/krishitavipinjain/Desktop/medical-deepfake-detection/runs/tune_efficientnet_removal/lr5e-05_do0.3_wd0.01/seed0",
+    "device": null,
+    "limit_batches": 0
+  },
+  "best_epoch": 27,
+  "thresholds": {
+    "default_0.5": 0.5,
+    "youden_val": 0.47730985283851624,
+    "recall0.95_val": 0.26752254366874695
+  },
+  "splits": {
+    "val": {
+      "n": 108,
+      "auc": 0.909122085048011,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.8148148148148148,
+        "balanced_accuracy": 0.8148148148148149,
+        "precision": 0.8863636363636364,
+        "recall": 0.7222222222222222,
+        "specificity": 0.9074074074074074,
+        "f1": 0.7959183673469388,
+        "tp": 39,
+        "tn": 49,
+        "fp": 5,
+        "fn": 15
+      },
+      "youden_val": {
+        "threshold": 0.47730985283851624,
+        "accuracy": 0.8611111111111112,
+        "balanced_accuracy": 0.8611111111111112,
+        "precision": 0.8823529411764706,
+        "recall": 0.8333333333333334,
+        "specificity": 0.8888888888888888,
+        "f1": 0.8571428571428571,
+        "tp": 45,
+        "tn": 48,
+        "fp": 6,
+        "fn": 9
+      },
+      "recall0.95_val": {
+        "threshold": 0.26752254366874695,
+        "accuracy": 0.7592592592592593,
+        "balanced_accuracy": 0.7592592592592593,
+        "precision": 0.6842105263157895,
+        "recall": 0.9629629629629629,
+        "specificity": 0.5555555555555556,
+        "f1": 0.7999999999999999,
+        "tp": 52,
+        "tn": 30,
+        "fp": 24,
+        "fn": 2
+      }
+    },
+    "test_same": {
+      "n": 146,
+      "auc": 0.8782135485081629,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.7602739726027398,
+        "balanced_accuracy": 0.7602739726027397,
+        "precision": 0.8064516129032258,
+        "recall": 0.684931506849315,
+        "specificity": 0.8356164383561644,
+        "f1": 0.7407407407407408,
+        "tp": 50,
+        "tn": 61,
+        "fp": 12,
+        "fn": 23
+      },
+      "youden_val": {
+        "threshold": 0.47730985283851624,
+        "accuracy": 0.7671232876712328,
+        "balanced_accuracy": 0.7671232876712328,
+        "precision": 0.8,
+        "recall": 0.7123287671232876,
+        "specificity": 0.821917808219178,
+        "f1": 0.7536231884057971,
+        "tp": 52,
+        "tn": 60,
+        "fp": 13,
+        "fn": 21
+      },
+      "recall0.95_val": {
+        "threshold": 0.26752254366874695,
+        "accuracy": 0.7397260273972602,
+        "balanced_accuracy": 0.7397260273972603,
+        "precision": 0.6767676767676768,
+        "recall": 0.9178082191780822,
+        "specificity": 0.5616438356164384,
+        "f1": 0.7790697674418604,
+        "tp": 67,
+        "tn": 41,
+        "fp": 32,
+        "fn": 6
+      }
+    },
+    "test_other": {
+      "n": 146,
+      "auc": 0.6081816475886657,
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.5205479452054794,
+        "balanced_accuracy": 0.5205479452054794,
+        "precision": 0.5555555555555556,
+        "recall": 0.2054794520547945,
+        "specificity": 0.8356164383561644,
+        "f1": 0.3,
+        "tp": 15,
+        "tn": 61,
+        "fp": 12,
+        "fn": 58
+      },
+      "youden_val": {
+        "threshold": 0.47730985283851624,
+        "accuracy": 0.5273972602739726,
+        "balanced_accuracy": 0.5273972602739726,
+        "precision": 0.5666666666666667,
+        "recall": 0.2328767123287671,
+        "specificity": 0.821917808219178,
+        "f1": 0.3300970873786407,
+        "tp": 17,
+        "tn": 60,
+        "fp": 13,
+        "fn": 56
+      },
+      "recall0.95_val": {
+        "threshold": 0.26752254366874695,
+        "accuracy": 0.5821917808219178,
+        "balanced_accuracy": 0.5821917808219178,
+        "precision": 0.5789473684210527,
+        "recall": 0.6027397260273972,
+        "specificity": 0.5616438356164384,
+        "f1": 0.5906040268456375,
+        "tp": 44,
+        "tn": 41,
+        "fp": 32,
+        "fn": 29
+      }
+    }
+  }
+}
