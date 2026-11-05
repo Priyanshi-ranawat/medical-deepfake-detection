@@ -142,6 +142,7 @@ def analyze(args):
     output.mkdir(parents=True, exist_ok=True)
     threshold = checkpoint.get("thresholds", {}).get("youden_val", 0.5)
     train_method = run_args.get("train_method", "CTGAN") if run_args["modality"] == "CT" else "SD"
+    run_name = Path(args.checkpoint).parent.name
     visual_selection = getattr(args, "visual_selection", "true-positive")
     rows, visual_counts = [], {split: 0 for split in splits}
     with GradCAM(model, gradcam_target_layer(model, run_args["arch"])) as gradcam:
@@ -167,10 +168,12 @@ def analyze(args):
                     probability = float(probabilities[local_i])
                     row = {
                         "architecture": run_args["arch"],
+                        "run": run_name,
                         "modality": run_args["modality"],
                         "task": run_args["task"],
                         "train_method": train_method,
                         "seed": run_args.get("seed"),
+                        "pretrained": bool(run_args.get("pretrained", True)),
                         "split": split,
                         "path": path,
                         "scan_id": str(_meta_value(meta, "scan_id", source_i)),
